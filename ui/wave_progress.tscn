@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyv6q5rshyj54"]
+
+[ext_resource type="Script" uid="uid://b7en4oigf30p4" path="res://ui/wave_progress.gd" id="1_uv1kp"]
+
+[node name="WaveProgress" type="ProgressBar"]
+custom_minimum_size = Vector2(250, 30)
+size_flags_horizontal = 4
+max_value = 20.0
+value = 13.0
+rounded = true
+show_percentage = false
+script = ExtResource("1_uv1kp")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0 / 5"
+horizontal_alignment = 1

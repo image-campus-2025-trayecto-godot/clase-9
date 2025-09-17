@@ -11,7 +11,7 @@ var time_since_ready: float = 0.0
 @export var frequency: float = 10.0 
 
 func _ready() -> void:
-	GameManager.enemy_died.connect(func(enemy):
+	GameManager.enemy_died.connect(func(_enemy):
 		self.shake(3)
 	)
 

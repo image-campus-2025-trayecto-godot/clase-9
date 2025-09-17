@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm6cv6lkuywht"]
+
+[ext_resource type="Texture2D" uid="uid://by7rs0mgooee1" path="res://assets/kenney_tower-defense-top-down/PNG/Default size/towerDefense_tile181.png" id="1_trogc"]
+[ext_resource type="Script" uid="uid://diktjs4iec3ve" path="res://tower/tower_spawner.gd" id="2_ardi7"]
+
+[node name="TowerSpawner" type="TextureButton"]
+offset_right = 64.0
+offset_bottom = 64.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("1_trogc")
+script = ExtResource("2_ardi7")
+
+[node name="SpawnerPosition" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 72.0
+offset_bottom = 72.0
+mouse_filter = 2
+
+[node name="MenuPosition" type="Control" parent="."]
+anchors_preset = 0
+offset_left = 86.0
+offset_top = -22.0
+offset_right = 126.0
+offset_bottom = 18.0
+mouse_filter = 2

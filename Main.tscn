@@ -1,17 +1,17 @@
 [gd_scene load_steps=19 format=4 uid="uid://bfvvxrb4pe1at"]
 
+[ext_resource type="PackedScene" uid="uid://cm6cv6lkuywht" path="res://tower/tower_spawner.tscn" id="1_5vvyt"]
 [ext_resource type="Texture2D" uid="uid://b44lqg7cnmwty" path="res://assets/kenney_tower-defense-top-down/Tilesheet/towerDefense_tilesheet.png" id="1_uu6xs"]
 [ext_resource type="Script" uid="uid://bvfpfy40cnggs" path="res://horde_spawner.gd" id="2_r0du0"]
 [ext_resource type="Script" uid="uid://cde6nhyjags83" path="res://shaker.gd" id="2_trn2v"]
 [ext_resource type="PackedScene" uid="uid://cqkvovjo1rubu" path="res://enemy/plane.tscn" id="3_fos0i"]
-[ext_resource type="PackedScene" uid="uid://b05paano74ijp" path="res://tower/tower.tscn" id="3_r0du0"]
 [ext_resource type="PackedScene" uid="uid://cl1jaqbs44u2l" path="res://enemy/armored_plane.tscn" id="4_lgr22"]
-[ext_resource type="PackedScene" uid="uid://cuf72vampr746" path="res://tower/cannons/cannon_double.tscn" id="6_3dxm6"]
-[ext_resource type="PackedScene" uid="uid://ca5bk0pibgd3v" path="res://tower/cannons/cannon_rocket.tscn" id="7_lgr22"]
 [ext_resource type="Theme" uid="uid://0hucwlmg0i46" path="res://ui/theme.tres" id="9_20pc6"]
 [ext_resource type="Script" uid="uid://b3f8iuy2os81p" path="res://hud.gd" id="10_20pc6"]
 [ext_resource type="PackedScene" uid="uid://c5ai30rjoypus" path="res://ui/score.tscn" id="11_5vvyt"]
 [ext_resource type="Texture2D" uid="uid://dmb57qvgmgmhb" path="res://assets/kenney_ui-pack-space-expansion/PNG/Red/Default/button_square_header_small_rectangle_screws.png" id="12_5vvyt"]
+[ext_resource type="PackedScene" uid="uid://cwh2brnckm81e" path="res://ui/tower_selection_menu.tscn" id="12_c6i3y"]
+[ext_resource type="PackedScene" uid="uid://dyv6q5rshyj54" path="res://ui/wave_progress.tscn" id="13_c6i3y"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r0du0"]
 texture = ExtResource("1_uu6xs")
@@ -346,6 +346,46 @@ texture_margin_bottom = 12.0431
 [node name="Level" type="Node2D"]
 texture_filter = 2
 
+[node name="TowerSpawner" parent="." node_paths=PackedStringArray("towers_container", "tower_selection_menu") instance=ExtResource("1_5vvyt")]
+offset_left = 340.0
+offset_top = 121.0
+offset_right = 404.0
+offset_bottom = 185.0
+towers_container = NodePath("../Towers")
+tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu")
+
+[node name="TowerSpawner2" parent="." node_paths=PackedStringArray("towers_container", "tower_selection_menu") instance=ExtResource("1_5vvyt")]
+offset_left = 190.0
+offset_top = 365.0
+offset_right = 254.0
+offset_bottom = 429.0
+towers_container = NodePath("../Towers")
+tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu")
+
+[node name="TowerSpawner3" parent="." node_paths=PackedStringArray("towers_container", "tower_selection_menu") instance=ExtResource("1_5vvyt")]
+offset_left = 604.0
+offset_top = 214.0
+offset_right = 668.0
+offset_bottom = 278.0
+towers_container = NodePath("../Towers")
+tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu")
+
+[node name="TowerSpawner4" parent="." node_paths=PackedStringArray("towers_container", "tower_selection_menu") instance=ExtResource("1_5vvyt")]
+offset_left = 439.0
+offset_top = 355.0
+offset_right = 503.0
+offset_bottom = 419.0
+towers_container = NodePath("../Towers")
+tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu")
+
+[node name="TowerSpawner5" parent="." node_paths=PackedStringArray("towers_container", "tower_selection_menu") instance=ExtResource("1_5vvyt")]
+offset_left = 854.0
+offset_top = 269.0
+offset_right = 918.0
+offset_bottom = 333.0
+towers_container = NodePath("../Towers")
+tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
 tile_map_data = PackedByteArray("AAAAAAAAAQABAAEAAAAAAAEAAQABAAQAAAAAAAIAAQABAAEAAAAAAAMAAQABAAoAAAAAAAQAAQABAAoAAAAAAAUAAQABAAoAAAAAAAYAAQABAAoAAAAAAAcAAQABAAoAAAAAAAgAAQAGAAcAAAAAAAkAAQABAAoAAAABAAAAAQABAAEAAAABAAEAAQABAAQAAAABAAIAAQABAAQAAAABAAMAAQABAAoAAAABAAQAAQABAAoAAAABAAUAAQABAAoAAAABAAYAAQABAAoAAAABAAcAAQABAAoAAAABAAgAAQAGAAcAAAABAAkAAQABAAoAAAACAAAAAQABAAEAAAACAAEAAQABAAEAAAACAAIAAQABAAQAAAACAAMAAQABAAoAAAACAAQAAQABAAoAAAACAAUAAQABAAoAAAACAAYAAQABAAoAAAACAAcAAQABAAoAAAACAAgAAQAGAAcAAAACAAkAAQABAAoAAAADAAAAAQABAAoAAAADAAEAAQABAAEAAAADAAIAAQABAAQAAAADAAMAAQABAAQAAAADAAQAAQABAAoAAAADAAUAAQABAAoAAAADAAYAAQABAAoAAAADAAcAAQABAAoAAAADAAgAAQAGAAcAAAADAAkAAQABAAoAAAAEAAAAAQABAAoAAAAEAAEAAQABAAEAAAAEAAIAAQABAAEAAAAEAAMAAQABAAQAAAAEAAQAAQABAAQAAAAEAAUAAQABAAoAAAAEAAYAAQABAAoAAAAEAAcAAQABAAoAAAAEAAgAAQAGAAcAAAAEAAkAAQABAAoAAAAFAAAAAQABAAoAAAAFAAEAAQABAAoAAAAFAAIAAQABAAEAAAAFAAMAAQABAAEAAAAFAAQAAQAGAAcAAAAFAAUAAQAGAAcAAAAFAAYAAQAGAAcAAAAFAAcAAQAGAAcAAAAFAAgAAQAGAAcAAAAFAAkAAQABAAoAAAAGAAAAAQABAAoAAAAGAAEAAQABAAoAAAAGAAIAAQABAAoAAAAGAAMAAQABAAEAAAAGAAQAAQABAAQAAAAGAAUAAQABAAoAAAAGAAYAAQABAAoAAAAGAAcAAQABAAoAAAAGAAgAAQABAAoAAAAGAAkAAQABAAoAAAAHAAAAAQABAAEAAAAHAAEAAQABAAEAAAAHAAIAAQABAAQAAAAHAAMAAQABAAQAAAAHAAQAAQABAAQAAAAHAAUAAQABAAoAAAAHAAYAAQABAAoAAAAHAAcAAQABAAoAAAAHAAgAAQABAAoAAAAHAAkAAQABAAoAAAAIAAAAAQABAAEAAAAIAAEAAQABAAQAAAAIAAIAAQABAAQAAAAIAAMAAQABAAoAAAAIAAQAAQABAAoAAAAIAAUAAQABAAoAAAAIAAYAAQABAAoAAAAIAAcAAQABAAoAAAAIAAgAAQABAAoAAAAIAAkAAQABAAoAAAAJAAAAAQABAAEAAAAJAAEAAQABAAQAAAAJAAIAAQABAAoAAAAJAAMAAQABAAoAAAAJAAQAAQABAAoAAAAJAAUAAQABAAoAAAAJAAYAAQABAAoAAAAJAAcAAQABAAoAAAAJAAgAAQABAAoAAAAJAAkAAQABAAoAAAAKAAAAAQABAAEAAAAKAAEAAQABAAQAAAAKAAIAAQABAAoAAAAKAAMAAQABAAoAAAAKAAQAAQABAAoAAAAKAAUAAQABAAoAAAAKAAYAAQABAAoAAAAKAAcAAQABAAoAAAAKAAgAAQABAAoAAAAKAAkAAQABAAoAAAALAAAAAQABAAEAAAALAAEAAQABAAQAAAALAAIAAQABAAQAAAALAAMAAQABAAoAAAALAAQAAQABAAoAAAALAAUAAQABAAoAAAALAAYAAQABAAoAAAALAAcAAQABAAEAAAALAAgAAQABAAoAAAALAAkAAQABAAoAAAAMAAAAAQABAAEAAAAMAAEAAQABAAEAAAAMAAIAAQABAAQAAAAMAAMAAQABAAQAAAAMAAQAAQABAAQAAAAMAAUAAQABAAQAAAAMAAYAAQABAAQAAAAMAAcAAQABAAEAAAAMAAgAAQABAAoAAAAMAAkAAQABAAoAAAANAAAAAQABAAoAAAANAAEAAQABAAEAAAANAAIAAQABAAEAAAANAAUAAQABAAEAAAANAAYAAQABAAQAAAANAAcAAQABAAEAAAANAAgAAQABAAoAAAANAAkAAQABAAoAAAAOAAAAAQABAAoAAAAOAAEAAQABAAoAAAAOAAIAAQABAAoAAAAOAAMAAQABAAoAAAAOAAQAAQABAAoAAAAOAAUAAQABAAEAAAAOAAYAAQABAAQAAAAOAAcAAQABAAEAAAAOAAgAAQABAAoAAAAOAAkAAQABAAoAAAAPAAAAAQABAAoAAAAPAAEAAQABAAoAAAAPAAIAAQABAAoAAAAPAAMAAQABAAoAAAAPAAQAAQABAAoAAAAPAAUAAQABAAEAAAAPAAYAAQABAAQAAAAPAAcAAQABAAoAAAAPAAgAAQABAAoAAAAPAAkAAQABAAoAAAAQAAAAAQABAAoAAAAQAAEAAQABAAoAAAAQAAIAAQABAAoAAAAQAAMAAQABAAoAAAAQAAQAAQABAAoAAAAQAAUAAQABAAEAAAAQAAYAAQABAAQAAAAQAAcAAQABAAQAAAAQAAgAAQABAAQAAAAQAAkAAQABAAQAAAARAAAAAQABAAoAAAARAAEAAQABAAoAAAARAAIAAQABAAoAAAARAAMAAQABAAoAAAARAAQAAQABAAoAAAARAAUAAQABAAEAAAARAAYAAQABAAEAAAARAAcAAQABAAEAAAARAAgAAQABAAEAAAARAAkAAQABAAEAAAANAAQAAQABAAEAAAANAAMAAQABAAEAAAA=")
@@ -383,18 +423,7 @@ curve = SubResource("Curve2D_uu6xs")
 [node name="RouteB" type="Path2D" parent="."]
 curve = SubResource("Curve2D_r0du0")
 
-[node name="Tower" parent="." instance=ExtResource("3_r0du0")]
-position = Vector2(388, 155)
-
-[node name="Tower2" parent="." instance=ExtResource("3_r0du0")]
-position = Vector2(466, 415)
-cannon_scene = ExtResource("6_3dxm6")
-time_between_shoots = 1.0
-
-[node name="Tower3" parent="." instance=ExtResource("3_r0du0")]
-position = Vector2(568, 271)
-cannon_scene = ExtResource("7_lgr22")
-time_between_shoots = 0.8
+[node name="Towers" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -405,6 +434,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme = ExtResource("9_20pc6")
 script = ExtResource("10_20pc6")
 
@@ -415,12 +445,14 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 15
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 15
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/HUD/MarginContainer"]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Score" parent="CanvasLayer/HUD/MarginContainer/VBoxContainer" instance=ExtResource("11_5vvyt")]
 unique_name_in_owner = true
@@ -434,9 +466,15 @@ size_flags_horizontal = 8
 theme_override_styles/normal = SubResource("StyleBoxTexture_c6i3y")
 text = "Time: "
 
-[node name="WaveProgress" type="ProgressBar" parent="CanvasLayer/HUD/MarginContainer"]
+[node name="WaveProgress" parent="CanvasLayer/HUD/MarginContainer" instance=ExtResource("13_c6i3y")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
-size_flags_horizontal = 4
-value = 50.0
+
+[node name="TowerSelectionMenu" parent="CanvasLayer/HUD" node_paths=PackedStringArray("towers_container") instance=ExtResource("12_c6i3y")]
+visible = false
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 83.0
+offset_bottom = 121.0
+towers_container = NodePath("../../../Towers")
