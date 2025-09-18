@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cc8v3pxhf3c2w"]
+
+[ext_resource type="Script" uid="uid://b70stpu1djd8p" path="res://tower_point.gd" id="1_x7rar"]
+[ext_resource type="PackedScene" uid="uid://b05paano74ijp" path="res://tower/tower.tscn" id="2_5rjah"]
+[ext_resource type="PackedScene" uid="uid://cm6cv6lkuywht" path="res://tower/tower_spawner.tscn" id="3_keupt"]
+
+[node name="TowerPoint" type="Node2D"]
+script = ExtResource("1_x7rar")
+
+[node name="Tower" parent="." instance=ExtResource("2_5rjah")]
+process_mode = 4
+
+[node name="TowerSpawner" parent="." instance=ExtResource("3_keupt")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 32.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2

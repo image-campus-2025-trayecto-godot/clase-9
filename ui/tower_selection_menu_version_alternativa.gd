@@ -9,7 +9,6 @@ extends PanelContainer
 
 const TOWER = preload("res://tower/tower.tscn")
 @export var towers_container: Node2D
-var spawn_position: Vector2
 var tower_spawner: TowerSpawner
 
 func _ready() -> void:
@@ -23,9 +22,5 @@ func _ready() -> void:
 		)
 
 func spawn_tower(cannon_scene: PackedScene):
-	var tower = TOWER.instantiate()
-	tower.cannon_scene = cannon_scene
-	towers_container.add_child(tower)
-	tower.global_position = spawn_position
+	tower_spawner.cannon_was_chosen(cannon_scene)
 	visible = false
-	tower_spawner.on_tower_spawned(tower)

@@ -39,6 +39,7 @@ toggle_ruake={
 [layer_names]
 
 2d_physics/layer_1="enemies"
+2d_physics/layer_2="input_events"
 
 [rendering]
 

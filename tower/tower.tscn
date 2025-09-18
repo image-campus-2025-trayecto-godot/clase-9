@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b05paano74ijp"]
+[gd_scene load_steps=9 format=3 uid="uid://b05paano74ijp"]
 
 [ext_resource type="Script" uid="uid://b3wi0mrw76y8b" path="res://tower.gd" id="1_4ulc0"]
 [ext_resource type="PackedScene" uid="uid://ddam2am8jha44" path="res://tower/cannons/cannon.tscn" id="2_4ulc0"]
@@ -67,6 +67,9 @@ _data = {
 &"appear": SubResource("Animation_4ulc0")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ulc0"]
+size = Vector2(80, 132)
+
 [node name="Tower" type="Node2D"]
 script = ExtResource("1_4ulc0")
 cannon_scene = ExtResource("2_4ulc0")
@@ -91,3 +94,23 @@ libraries = {
 &"": SubResource("AnimationLibrary_xnkcx")
 }
 autoplay = "appear"
+
+[node name="SellButton" type="Button" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = -82.0
+offset_right = 32.0
+offset_bottom = -51.0
+grow_horizontal = 2
+text = "Vender"
+metadata/_edit_use_anchors_ = true
+
+[node name="InputArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InputArea"]
+position = Vector2(-1, -33)
+shape = SubResource("RectangleShape2D_4ulc0")

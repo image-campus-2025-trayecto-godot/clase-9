@@ -1,17 +1,21 @@
-[gd_scene load_steps=19 format=4 uid="uid://bfvvxrb4pe1at"]
+[gd_scene load_steps=23 format=4 uid="uid://bfvvxrb4pe1at"]
 
-[ext_resource type="PackedScene" uid="uid://cm6cv6lkuywht" path="res://tower/tower_spawner.tscn" id="1_5vvyt"]
 [ext_resource type="Texture2D" uid="uid://b44lqg7cnmwty" path="res://assets/kenney_tower-defense-top-down/Tilesheet/towerDefense_tilesheet.png" id="1_uu6xs"]
 [ext_resource type="Script" uid="uid://bvfpfy40cnggs" path="res://horde_spawner.gd" id="2_r0du0"]
 [ext_resource type="Script" uid="uid://cde6nhyjags83" path="res://shaker.gd" id="2_trn2v"]
 [ext_resource type="PackedScene" uid="uid://cqkvovjo1rubu" path="res://enemy/plane.tscn" id="3_fos0i"]
 [ext_resource type="PackedScene" uid="uid://cl1jaqbs44u2l" path="res://enemy/armored_plane.tscn" id="4_lgr22"]
+[ext_resource type="PackedScene" uid="uid://cuf72vampr746" path="res://tower/cannons/cannon_double.tscn" id="6_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://cc8v3pxhf3c2w" path="res://tower/tower_point.tscn" id="6_fpfj3"]
+[ext_resource type="PackedScene" uid="uid://ca5bk0pibgd3v" path="res://tower/cannons/cannon_rocket.tscn" id="7_lgr22"]
 [ext_resource type="Theme" uid="uid://0hucwlmg0i46" path="res://ui/theme.tres" id="9_20pc6"]
 [ext_resource type="Script" uid="uid://b3f8iuy2os81p" path="res://hud.gd" id="10_20pc6"]
 [ext_resource type="PackedScene" uid="uid://c5ai30rjoypus" path="res://ui/score.tscn" id="11_5vvyt"]
 [ext_resource type="Texture2D" uid="uid://dmb57qvgmgmhb" path="res://assets/kenney_ui-pack-space-expansion/PNG/Red/Default/button_square_header_small_rectangle_screws.png" id="12_5vvyt"]
 [ext_resource type="PackedScene" uid="uid://cwh2brnckm81e" path="res://ui/tower_selection_menu.tscn" id="12_c6i3y"]
 [ext_resource type="PackedScene" uid="uid://dyv6q5rshyj54" path="res://ui/wave_progress.tscn" id="13_c6i3y"]
+[ext_resource type="Script" uid="uid://bis87s4c35med" path="res://ui/tower_selection_menu_version_alternativa.gd" id="15_kjvhd"]
+[ext_resource type="PackedScene" uid="uid://ddam2am8jha44" path="res://tower/cannons/cannon.tscn" id="16_5tuhn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r0du0"]
 texture = ExtResource("1_uu6xs")
@@ -346,46 +350,6 @@ texture_margin_bottom = 12.0431
 [node name="Level" type="Node2D"]
 texture_filter = 2
 
-[node name="TowerSpawner" parent="." node_paths=PackedStringArray("towers_container", "tower_selection_menu") instance=ExtResource("1_5vvyt")]
-offset_left = 340.0
-offset_top = 121.0
-offset_right = 404.0
-offset_bottom = 185.0
-towers_container = NodePath("../Towers")
-tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu")
-
-[node name="TowerSpawner2" parent="." node_paths=PackedStringArray("towers_container", "tower_selection_menu") instance=ExtResource("1_5vvyt")]
-offset_left = 190.0
-offset_top = 365.0
-offset_right = 254.0
-offset_bottom = 429.0
-towers_container = NodePath("../Towers")
-tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu")
-
-[node name="TowerSpawner3" parent="." node_paths=PackedStringArray("towers_container", "tower_selection_menu") instance=ExtResource("1_5vvyt")]
-offset_left = 604.0
-offset_top = 214.0
-offset_right = 668.0
-offset_bottom = 278.0
-towers_container = NodePath("../Towers")
-tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu")
-
-[node name="TowerSpawner4" parent="." node_paths=PackedStringArray("towers_container", "tower_selection_menu") instance=ExtResource("1_5vvyt")]
-offset_left = 439.0
-offset_top = 355.0
-offset_right = 503.0
-offset_bottom = 419.0
-towers_container = NodePath("../Towers")
-tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu")
-
-[node name="TowerSpawner5" parent="." node_paths=PackedStringArray("towers_container", "tower_selection_menu") instance=ExtResource("1_5vvyt")]
-offset_left = 854.0
-offset_top = 269.0
-offset_right = 918.0
-offset_bottom = 333.0
-towers_container = NodePath("../Towers")
-tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu")
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 z_index = -1
 tile_map_data = PackedByteArray("AAAAAAAAAQABAAEAAAAAAAEAAQABAAQAAAAAAAIAAQABAAEAAAAAAAMAAQABAAoAAAAAAAQAAQABAAoAAAAAAAUAAQABAAoAAAAAAAYAAQABAAoAAAAAAAcAAQABAAoAAAAAAAgAAQAGAAcAAAAAAAkAAQABAAoAAAABAAAAAQABAAEAAAABAAEAAQABAAQAAAABAAIAAQABAAQAAAABAAMAAQABAAoAAAABAAQAAQABAAoAAAABAAUAAQABAAoAAAABAAYAAQABAAoAAAABAAcAAQABAAoAAAABAAgAAQAGAAcAAAABAAkAAQABAAoAAAACAAAAAQABAAEAAAACAAEAAQABAAEAAAACAAIAAQABAAQAAAACAAMAAQABAAoAAAACAAQAAQABAAoAAAACAAUAAQABAAoAAAACAAYAAQABAAoAAAACAAcAAQABAAoAAAACAAgAAQAGAAcAAAACAAkAAQABAAoAAAADAAAAAQABAAoAAAADAAEAAQABAAEAAAADAAIAAQABAAQAAAADAAMAAQABAAQAAAADAAQAAQABAAoAAAADAAUAAQABAAoAAAADAAYAAQABAAoAAAADAAcAAQABAAoAAAADAAgAAQAGAAcAAAADAAkAAQABAAoAAAAEAAAAAQABAAoAAAAEAAEAAQABAAEAAAAEAAIAAQABAAEAAAAEAAMAAQABAAQAAAAEAAQAAQABAAQAAAAEAAUAAQABAAoAAAAEAAYAAQABAAoAAAAEAAcAAQABAAoAAAAEAAgAAQAGAAcAAAAEAAkAAQABAAoAAAAFAAAAAQABAAoAAAAFAAEAAQABAAoAAAAFAAIAAQABAAEAAAAFAAMAAQABAAEAAAAFAAQAAQAGAAcAAAAFAAUAAQAGAAcAAAAFAAYAAQAGAAcAAAAFAAcAAQAGAAcAAAAFAAgAAQAGAAcAAAAFAAkAAQABAAoAAAAGAAAAAQABAAoAAAAGAAEAAQABAAoAAAAGAAIAAQABAAoAAAAGAAMAAQABAAEAAAAGAAQAAQABAAQAAAAGAAUAAQABAAoAAAAGAAYAAQABAAoAAAAGAAcAAQABAAoAAAAGAAgAAQABAAoAAAAGAAkAAQABAAoAAAAHAAAAAQABAAEAAAAHAAEAAQABAAEAAAAHAAIAAQABAAQAAAAHAAMAAQABAAQAAAAHAAQAAQABAAQAAAAHAAUAAQABAAoAAAAHAAYAAQABAAoAAAAHAAcAAQABAAoAAAAHAAgAAQABAAoAAAAHAAkAAQABAAoAAAAIAAAAAQABAAEAAAAIAAEAAQABAAQAAAAIAAIAAQABAAQAAAAIAAMAAQABAAoAAAAIAAQAAQABAAoAAAAIAAUAAQABAAoAAAAIAAYAAQABAAoAAAAIAAcAAQABAAoAAAAIAAgAAQABAAoAAAAIAAkAAQABAAoAAAAJAAAAAQABAAEAAAAJAAEAAQABAAQAAAAJAAIAAQABAAoAAAAJAAMAAQABAAoAAAAJAAQAAQABAAoAAAAJAAUAAQABAAoAAAAJAAYAAQABAAoAAAAJAAcAAQABAAoAAAAJAAgAAQABAAoAAAAJAAkAAQABAAoAAAAKAAAAAQABAAEAAAAKAAEAAQABAAQAAAAKAAIAAQABAAoAAAAKAAMAAQABAAoAAAAKAAQAAQABAAoAAAAKAAUAAQABAAoAAAAKAAYAAQABAAoAAAAKAAcAAQABAAoAAAAKAAgAAQABAAoAAAAKAAkAAQABAAoAAAALAAAAAQABAAEAAAALAAEAAQABAAQAAAALAAIAAQABAAQAAAALAAMAAQABAAoAAAALAAQAAQABAAoAAAALAAUAAQABAAoAAAALAAYAAQABAAoAAAALAAcAAQABAAEAAAALAAgAAQABAAoAAAALAAkAAQABAAoAAAAMAAAAAQABAAEAAAAMAAEAAQABAAEAAAAMAAIAAQABAAQAAAAMAAMAAQABAAQAAAAMAAQAAQABAAQAAAAMAAUAAQABAAQAAAAMAAYAAQABAAQAAAAMAAcAAQABAAEAAAAMAAgAAQABAAoAAAAMAAkAAQABAAoAAAANAAAAAQABAAoAAAANAAEAAQABAAEAAAANAAIAAQABAAEAAAANAAUAAQABAAEAAAANAAYAAQABAAQAAAANAAcAAQABAAEAAAANAAgAAQABAAoAAAANAAkAAQABAAoAAAAOAAAAAQABAAoAAAAOAAEAAQABAAoAAAAOAAIAAQABAAoAAAAOAAMAAQABAAoAAAAOAAQAAQABAAoAAAAOAAUAAQABAAEAAAAOAAYAAQABAAQAAAAOAAcAAQABAAEAAAAOAAgAAQABAAoAAAAOAAkAAQABAAoAAAAPAAAAAQABAAoAAAAPAAEAAQABAAoAAAAPAAIAAQABAAoAAAAPAAMAAQABAAoAAAAPAAQAAQABAAoAAAAPAAUAAQABAAEAAAAPAAYAAQABAAQAAAAPAAcAAQABAAoAAAAPAAgAAQABAAoAAAAPAAkAAQABAAoAAAAQAAAAAQABAAoAAAAQAAEAAQABAAoAAAAQAAIAAQABAAoAAAAQAAMAAQABAAoAAAAQAAQAAQABAAoAAAAQAAUAAQABAAEAAAAQAAYAAQABAAQAAAAQAAcAAQABAAQAAAAQAAgAAQABAAQAAAAQAAkAAQABAAQAAAARAAAAAQABAAoAAAARAAEAAQABAAoAAAARAAIAAQABAAoAAAARAAMAAQABAAoAAAARAAQAAQABAAoAAAARAAUAAQABAAEAAAARAAYAAQABAAEAAAARAAcAAQABAAEAAAARAAgAAQABAAEAAAARAAkAAQABAAEAAAANAAQAAQABAAEAAAANAAMAAQABAAEAAAA=")
@@ -412,6 +376,7 @@ position = Vector2(102, 246)
 script = ExtResource("2_r0du0")
 routes = [NodePath("../RouteA"), NodePath("../RouteB")]
 possible_enemies = Array[PackedScene]([ExtResource("4_lgr22"), ExtResource("3_fos0i")])
+enemy_amount = 50
 
 [node name="SpawnTimer" type="Timer" parent="HordeSpawner"]
 wait_time = 0.4
@@ -424,6 +389,26 @@ curve = SubResource("Curve2D_uu6xs")
 curve = SubResource("Curve2D_r0du0")
 
 [node name="Towers" type="Node2D" parent="."]
+
+[node name="TowerPoint" parent="." node_paths=PackedStringArray("tower_selection_menu") instance=ExtResource("6_fpfj3")]
+position = Vector2(388, 193)
+tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu2")
+
+[node name="TowerPoint2" parent="." node_paths=PackedStringArray("tower_selection_menu") instance=ExtResource("6_fpfj3")]
+position = Vector2(217, 453)
+tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu2")
+
+[node name="TowerPoint3" parent="." node_paths=PackedStringArray("tower_selection_menu") instance=ExtResource("6_fpfj3")]
+position = Vector2(638, 233)
+tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu2")
+
+[node name="TowerPoint4" parent="." node_paths=PackedStringArray("tower_selection_menu") instance=ExtResource("6_fpfj3")]
+position = Vector2(901, 308)
+tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu2")
+
+[node name="TowerPoint5" parent="." node_paths=PackedStringArray("tower_selection_menu") instance=ExtResource("6_fpfj3")]
+position = Vector2(693, 464)
+tower_selection_menu = NodePath("../CanvasLayer/HUD/TowerSelectionMenu2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -470,11 +455,16 @@ text = "Time: "
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TowerSelectionMenu" parent="CanvasLayer/HUD" node_paths=PackedStringArray("towers_container") instance=ExtResource("12_c6i3y")]
+[node name="TowerSelectionMenu2" parent="CanvasLayer/HUD" instance=ExtResource("12_c6i3y")]
 visible = false
 layout_mode = 0
 offset_left = 0.0
 offset_top = 0.0
 offset_right = 83.0
 offset_bottom = 121.0
-towers_container = NodePath("../../../Towers")
+script = ExtResource("15_kjvhd")
+cannon_types = Dictionary[String, PackedScene]({
+"Double": ExtResource("6_3dxm6"),
+"Rocket": ExtResource("7_lgr22"),
+"Simple": ExtResource("16_5tuhn")
+})

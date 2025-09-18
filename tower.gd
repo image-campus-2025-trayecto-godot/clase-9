@@ -1,3 +1,4 @@
+class_name Tower
 extends Node2D
 
 @onready var area_2d: Area2D = $Area2D
@@ -7,16 +8,34 @@ extends Node2D
 @onready var base: Sprite2D = $Base
 @export var rotation_speed: float = 5.0
 @export var time_between_shoots: float = 0.5
+@onready var sell_button: Button = $SellButton
+@onready var input_area: Area2D = $InputArea
+
+signal sold
 
 var enemies = []
 var can_shoot: bool = true
 
 func _ready() -> void:
+	input_area.mouse_entered.connect(func():
+		sell_button.visible = true
+	)
+	input_area.mouse_exited.connect(func():
+		sell_button.visible = false
+	)
+	sell_button.visible = false
+	sell_button.pressed.connect(sell)
 	shoot_timer.wait_time = time_between_shoots
 	cannon = cannon_scene.instantiate()
 	base.add_child(cannon)
 	area_2d.area_entered.connect(on_area_entered)
 	area_2d.area_exited.connect(on_area_exited)
+
+func set_cannon(cannon_scene):
+	if cannon:
+		cannon.queue_free()
+	cannon = cannon_scene.instantiate()
+	base.add_child(cannon)
 
 func on_area_entered(an_area: Area2D) -> void:
 	enemies.push_back(an_area)
@@ -51,3 +70,6 @@ func _closest_enemy() -> Node2D:
 		if enemy.global_position.distance_squared_to(global_position) < closest_enemy.global_position.distance_squared_to(global_position):
 			closest_enemy = enemy
 	return closest_enemy
+	
+func sell():
+	sold.emit()
